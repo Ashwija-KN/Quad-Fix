@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# TanStack Start (via Nitro's "netlify" preset) writes its SSR handler to
+# .netlify/functions-internal automatically during `npm run build`. Netlify's
+# build system picks that up on its own — no [functions] block needed here.

@@ -1,0 +1,257 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Campus Problem Solver design system — "field notebook" aesthetic.
+ * Paper stock, navy ink, gold rubber-stamp accents. All colors in oklch.
+ */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 3px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 10px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper-dark: var(--paper-dark);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-alert: var(--alert);
+  --color-alert-soft: var(--alert-soft);
+  --color-info: var(--info);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* Playful module hues */
+  --color-m1: var(--m1);
+  --color-m1-soft: var(--m1-soft);
+  --color-m2: var(--m2);
+  --color-m2-soft: var(--m2-soft);
+  --color-m3: var(--m3);
+  --color-m3-soft: var(--m3-soft);
+  --color-m4: var(--m4);
+  --color-m4-soft: var(--m4-soft);
+  --color-m5: var(--m5);
+  --color-m5-soft: var(--m5-soft);
+  --color-m6: var(--m6);
+  --color-m6-soft: var(--m6-soft);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-stamp: "Special Elite", "Courier New", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --shadow-block: 5px 5px 0 var(--ink-shadow);
+  --shadow-block-lg: 8px 8px 0 var(--ink-shadow);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.943 0.033 91);
+  --foreground: oklch(0.276 0.048 258);
+  --paper-dark: oklch(0.905 0.037 93);
+  --card: oklch(0.977 0.017 95);
+  --card-foreground: oklch(0.276 0.048 258);
+  --popover: oklch(0.977 0.017 95);
+  --popover-foreground: oklch(0.276 0.048 258);
+  --primary: oklch(0.276 0.048 258);
+  --primary-foreground: oklch(0.943 0.033 91);
+  --secondary: oklch(0.905 0.037 93);
+  --secondary-foreground: oklch(0.276 0.048 258);
+  --muted: oklch(0.905 0.037 93);
+  --muted-foreground: oklch(0.446 0.04 262);
+  --accent: oklch(0.72 0.13 78);
+  --accent-foreground: oklch(0.276 0.048 258);
+  --gold: oklch(0.72 0.13 78);
+  --gold-deep: oklch(0.578 0.115 74);
+  --ok: oklch(0.474 0.078 152);
+  --ok-soft: oklch(0.94 0.03 152);
+  --alert: oklch(0.462 0.155 32);
+  --alert-soft: oklch(0.94 0.035 32);
+  --info: oklch(0.435 0.072 236);
+  --destructive: oklch(0.462 0.155 32);
+  --destructive-foreground: oklch(0.977 0.017 95);
+  --border: oklch(0.803 0.049 92);
+  --input: oklch(0.803 0.049 92);
+  --ring: oklch(0.578 0.115 74);
+  --ink-shadow: oklch(0.276 0.048 258 / 14%);
+  /* Six saturated module hues + tinted paper washes */
+  --m1: oklch(0.6 0.19 20);
+  --m1-soft: oklch(0.93 0.055 25);
+  --m2: oklch(0.63 0.16 215);
+  --m2-soft: oklch(0.93 0.05 215);
+  --m3: oklch(0.68 0.16 60);
+  --m3-soft: oklch(0.94 0.06 70);
+  --m4: oklch(0.55 0.17 290);
+  --m4-soft: oklch(0.93 0.05 290);
+  --m5: oklch(0.62 0.16 150);
+  --m5-soft: oklch(0.93 0.055 150);
+  --m6: oklch(0.58 0.2 350);
+  --m6-soft: oklch(0.93 0.055 350);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(
+        circle at 12% 8%,
+        color-mix(in oklab, var(--m2) 22%, transparent),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 88% 4%,
+        color-mix(in oklab, var(--m6) 20%, transparent),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 78% 82%,
+        color-mix(in oklab, var(--m5) 20%, transparent),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 8% 90%,
+        color-mix(in oklab, var(--m3) 22%, transparent),
+        transparent 45%
+      ),
+      radial-gradient(circle at 1px 1px, oklch(0.276 0.048 258 / 8%) 1px, transparent 0);
+    background-size:
+      100% 100%, 100% 100%, 100% 100%, 100% 100%, 22px 22px;
+    background-attachment: fixed, fixed, fixed, fixed, scroll;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility stamp-text {
+  font-family: var(--font-stamp);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Perforated ticket card */
+@utility ticket {
+  position: relative;
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-block);
+}
+@utility notch-l {
+  position: absolute;
+  top: 50%;
+  left: -9px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  border: 2px solid var(--color-primary);
+  border-radius: 9999px;
+  background: var(--color-background);
+}
+@utility notch-r {
+  position: absolute;
+  top: 50%;
+  right: -9px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  border: 2px solid var(--color-primary);
+  border-radius: 9999px;
+  background: var(--color-background);
+}
+@utility field {
+  width: 100%;
+  font-size: 0.875rem;
+  padding: 0.55rem 0.65rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  background: oklch(1 0 0);
+  color: var(--color-foreground);
+  &:focus {
+    outline: none;
+    border-color: var(--color-gold-deep);
+    box-shadow: 0 0 0 3px oklch(0.578 0.115 74 / 18%);
+  }
+}
+@utility label-cap {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  margin-bottom: 0.35rem;
+}
+
+/* ---- Graphical helpers ---- */
+@utility rainbow-rule {
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    var(--m1),
+    var(--m3),
+    var(--m5),
+    var(--m2),
+    var(--m4),
+    var(--m6)
+  );
+}
+@utility confetti {
+  background-image: radial-gradient(circle at 20% 30%, color-mix(in oklab, var(--m1) 55%, transparent) 3px, transparent 4px),
+    radial-gradient(circle at 70% 20%, color-mix(in oklab, var(--m2) 55%, transparent) 3px, transparent 4px),
+    radial-gradient(circle at 45% 75%, color-mix(in oklab, var(--m5) 55%, transparent) 3px, transparent 4px),
+    radial-gradient(circle at 88% 66%, color-mix(in oklab, var(--m6) 55%, transparent) 3px, transparent 4px);
+  background-size: 90px 90px;
+}
+@utility bar-track {
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: var(--color-secondary);
+  border: 1.5px solid var(--color-primary);
+  overflow: hidden;
+}
+@utility hero-band {
+  background:
+    linear-gradient(
+      120deg,
+      color-mix(in oklab, var(--m2) 26%, var(--card)),
+      color-mix(in oklab, var(--m6) 22%, var(--card)) 55%,
+      color-mix(in oklab, var(--m3) 30%, var(--card))
+    );
+}
+@utility icon-badge {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  border: 2px solid var(--color-primary);
+  box-shadow: 3px 3px 0 var(--ink-shadow);
+  font-size: 1.4rem;
+  line-height: 1;
+}
